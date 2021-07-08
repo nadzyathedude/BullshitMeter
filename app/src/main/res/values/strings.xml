@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BullshitMeter</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
+    <string name="stay_informed_about_everything">Stay informed\nabout everything</string>
+
 </resources>
