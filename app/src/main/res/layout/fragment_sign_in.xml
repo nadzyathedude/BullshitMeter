@@ -1,92 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.main.SignInFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/image_view_icon_bullshitmeter"
-        android:layout_width="59dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="72dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/loading" />
+    <data>
 
-    <TextView
-        android:id="@+id/text_view_stay_informed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:singleLine="false"
-        android:text="@string/stay_informed_about_everything"
-        android:textColor="@color/main_text_color"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/image_view_group"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_view_icon_bullshitmeter" />
+        <variable
+            name="viewModel"
+            type="com.ronasit.bullshitmeter.ui.main.signin.SignInViewModel" />
+    </data>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.signin.SignInFragment">
 
-    <ImageView
-        android:id="@+id/image_view_group"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="66dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_view_stay_informed"
-        app:srcCompat="@drawable/group" />
+        <ImageView
+            android:id="@+id/image_view_icon_bullshitmeter"
+            android:layout_width="59dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="72dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/loading" />
 
-    <Button
-        android:id="@+id/button_google"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:paddingLeft="40dp"
-        android:paddingTop="15dp"
-        android:paddingRight="40dp"
-        android:paddingBottom="15dp"
-        android:text="@string/continue_with_google"
-        android:textAllCaps="false"
-        android:textColor="@color/google_button_text_color"
-        app:icon="@drawable/ic_google"
-        app:iconPadding="5dp"
-        app:iconTint="#ffffff"
-        app:iconTintMode="multiply"
-        app:layout_constraintBottom_toTopOf="@id/button_facebook"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="@color/google_button_border_color"
-        app:strokeWidth="1dp" />
+        <TextView
+            android:id="@+id/text_view_stay_informed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:singleLine="false"
+            android:text="@string/stay_informed_about_everything"
+            android:textColor="@color/main_text_color"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/image_view_group"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_view_icon_bullshitmeter" />
 
+        <ImageView
+            android:id="@+id/image_view_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="66dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_stay_informed"
+            app:srcCompat="@drawable/group" />
 
-    <Button
-        android:id="@+id/button_facebook"
-        style="@style/Widget.MaterialComponents.Button.Icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:gravity="center"
-        android:paddingLeft="29.5dp"
-        android:paddingTop="15dp"
-        android:paddingRight="29.5dp"
-        android:paddingBottom="15dp"
-        android:text="@string/continue_with_facebook"
-        android:textAllCaps="false"
-        app:backgroundTint="@color/facebook_button_color"
-        app:icon="@drawable/ic_facebook"
-        app:iconTint="#ffffff"
-        app:iconTintMode="multiply"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/button_google"
+            android:onClick="@{() -> viewModel.onGoogleClick()}"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:paddingLeft="40dp"
+            android:paddingTop="15dp"
+            android:paddingRight="40dp"
+            android:paddingBottom="15dp"
+            android:text="@string/continue_with_google"
+            android:textAllCaps="false"
+            android:textColor="@color/google_button_text_color"
+            app:icon="@drawable/ic_google"
+            app:iconPadding="5dp"
+            app:iconTint="#ffffff"
+            app:iconTintMode="multiply"
+            app:layout_constraintBottom_toTopOf="@id/button_facebook"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/google_button_border_color"
+            app:strokeWidth="1dp" />
 
+        <Button
+            android:id="@+id/button_facebook"
+            android:onClick="@{() -> viewModel.onFacebookClick()}"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:gravity="center"
+            android:paddingLeft="29.5dp"
+            android:paddingTop="15dp"
+            android:paddingRight="29.5dp"
+            android:paddingBottom="15dp"
+            android:text="@string/continue_with_facebook"
+            android:textAllCaps="false"
+            app:backgroundTint="@color/facebook_button_color"
+            app:icon="@drawable/ic_facebook"
+            app:iconTint="#ffffff"
+            app:iconTintMode="multiply"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

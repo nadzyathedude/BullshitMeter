@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/signInFragment">
+    app:startDestination="@id/signinFragment"
+    android:id="@+id/nav_graph.xml">
 
     <fragment
-        android:id="@+id/signInFragment"
-        android:name="com.ronasit.bullshitmeter.ui.main.SignInFragment"
-        android:label="fragment_sign_in"
-        tools:layout="@layout/fragment_sign_in" />
+        android:id="@+id/signinFragment"
+        android:name="com.ronasit.bullshitmeter.ui.main.signin.SignInFragment">
+
+        <action
+            android:id="@+id/action_signin_to_create_profile"
+            app:destination="@id/createProfileFragment"
+            app:popUpTo="@id/signinFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/createProfileFragment"
+        android:name="com.ronasit.bullshitmeter.ui.main.profile.CreateProfileFragment">
+
+        <action
+            android:id="@+id/action_create_profile_to_language"
+            app:popUpTo="@id/createProfileFragment"
+            app:destination="@id/selectLanguageFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectLanguageFragment"
+        android:name="com.ronasit.bullshitmeter.ui.main.language.SelectLanguageFragment">
+    </fragment>
+
+
+
+
+
 </navigation>
