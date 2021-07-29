@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "416163106233",
+    "firebase_url": "https://ranktruth-7ddb1.firebaseio.com",
+    "project_id": "ranktruth-7ddb1",
+    "storage_bucket": "ranktruth-7ddb1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416163106233:android:ab607ba440dce8adef7a68",
+        "android_client_info": {
+          "package_name": "com.ronasit.bullshitmeter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "416163106233-bi5abi33bb97teijg2c5rlbn7n6isd8r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ronasit.bullshitmeter",
+            "certificate_hash": "f0cf4a4c784dde20f26d2290a5208cf34fddb705"
+          }
+        },
+        {
+          "client_id": "416163106233-85n59r3408mp8b17nj4en9d2lljv582p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlqkTbZLajy49Rvue5t3bVobFWU5DXwao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "416163106233-85n59r3408mp8b17nj4en9d2lljv582p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "416163106233-5f07j3vsnfdmknso275j98b4o8e1ch0l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ranktruth.ranktruth"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
