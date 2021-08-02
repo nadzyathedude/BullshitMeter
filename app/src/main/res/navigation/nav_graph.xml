@@ -2,9 +2,8 @@
 
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/signinFragment"
-    android:id="@+id/nav_graph.xml">
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/selectLanguageFragment">
 
     <fragment
         android:id="@+id/signinFragment"
@@ -22,19 +21,25 @@
         android:name="com.ronasit.bullshitmeter.ui.main.profile.CreateProfileFragment">
 
         <action
-            android:id="@+id/action_create_profile_to_language"
-            app:popUpTo="@id/createProfileFragment"
-            app:destination="@id/selectLanguageFragment"/>
+            android:id="@+id/action_create_profile_to_change_name"
+            app:destination="@id/changeNameFragment"
+            app:popUpTo="@id/createProfileFragment" />
 
     </fragment>
 
     <fragment
-        android:id="@+id/selectLanguageFragment"
-        android:name="com.ronasit.bullshitmeter.ui.main.language.SelectLanguageFragment">
+        android:id="@+id/changeNameFragment"
+        android:name="com.ronasit.bullshitmeter.ui.main.profile.ChangeNameFragment">
+
+        <action
+            android:id="@+id/action_create_profile_to_change_name"
+            app:destination="@id/selectLanguageFragment"
+            app:popUpTo="@id/changeNameFragment" />
     </fragment>
 
-
-
+    <fragment
+        android:id="@+id/selectLanguageFragment"
+        android:name="com.ronasit.bullshitmeter.ui.main.language.SelectLanguageFragment"></fragment>
 
 
 </navigation>

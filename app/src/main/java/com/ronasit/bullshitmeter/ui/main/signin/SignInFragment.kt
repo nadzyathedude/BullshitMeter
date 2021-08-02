@@ -15,7 +15,6 @@ import com.ronasit.bullshitmeter.BuildConfig
 import com.ronasit.bullshitmeter.R
 import com.ronasit.bullshitmeter.databinding.FragmentSignInBinding
 import com.ronasit.bullshitmeter.ui.base.BaseFragment
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SignInFragment : BaseFragment<FragmentSignInBinding>() {
@@ -35,6 +34,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>() {
                 val completedTask = GoogleSignIn.getSignedInAccountFromIntent(result.data)
                 viewModel.handleSignInResult(completedTask)
             }
+
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -47,7 +47,8 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>() {
             .build()
         mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
 
-        binding?.viewModel = viewModel
+        binding.viewModel = viewModel
+
         viewModel.onGoogleSignInClick.observe(viewLifecycleOwner, {
             startForResult.launch(mGoogleSignInClient.signInIntent)
         })
