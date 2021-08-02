@@ -10,8 +10,6 @@ plugins {
 }
 
 
-
-
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -60,16 +58,16 @@ android {
     }
 
     flavorDimensions "default"
-    productFlavors  {
+    productFlavors {
 
         dev {
-            buildConfigField 'String','API_URL' , '"https://dev.api.ranktruth.ronasit.com/"'
-            buildConfigField  'String', 'DEFAULT_WEB_CLIENT_ID', '"416163106233-bi6nsostendbjs72r59lnpubms8tqjea.apps.googleusercontent.com"'
+            buildConfigField 'String', 'API_URL', '"https://dev.api.ranktruth.ronasit.com/"'
+            buildConfigField 'String', 'DEFAULT_WEB_CLIENT_ID', '"416163106233-bi6nsostendbjs72r59lnpubms8tqjea.apps.googleusercontent.com"'
         }
 
         stg {
-            buildConfigField 'String','API_URL' , '"https://dev.api.ranktruth.ronasit.com/"'
-            buildConfigField  'String', 'DEFAULT_WEB_CLIENT_ID', '"416163106233-bi6nsostendbjs72r59lnpubms8tqjea.apps.googleusercontent.com"'
+            buildConfigField 'String', 'API_URL', '"https://dev.api.ranktruth.ronasit.com/"'
+            buildConfigField 'String', 'DEFAULT_WEB_CLIENT_ID', '"416163106233-bi6nsostendbjs72r59lnpubms8tqjea.apps.googleusercontent.com"'
         }
     }
 

@@ -14,14 +14,19 @@ class SelectLanguageFragment : BaseFragment<FragmentSelectLanguageBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.viewModel = viewModel
-        val languagePicker = binding.pickerLanguage
+        binding.buttonContinue.isEnabled = false
 
-        viewModel.liveData.observe(viewLifecycleOwner, {
-            languagePicker.maxValue = 13
-            languagePicker.minValue = 0
-            languagePicker.displayedValues = it.map { it.code }.toTypedArray()
+        viewModel.availableLocales.observe(viewLifecycleOwner, { data ->
+            with(binding) {
+                pickerLanguage.minValue = 0
+                pickerLanguage.maxValue = data.size - 1
+                pickerLanguage.displayedValues = data.map { it.first }.toTypedArray()
+                pickerLanguage.setOnValueChangedListener { _, _, newVal ->
+                    this@SelectLanguageFragment.viewModel.currentSelectedLocaleIndex = newVal
+                }
+                buttonContinue.isEnabled = data.isEmpty().not()
+            }
         })
 
         viewModel.getAvailableLanguages()

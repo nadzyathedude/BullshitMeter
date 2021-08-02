@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="google_button_border_color">#4AA9EE</color>
     <color name="google_button_text_color">#4AA9EE</color>
-    <color name="facebook_button_color"> #1B6DD1</color>
+    <color name="facebook_button_color">#1B6DD1</color>
     <color name="main_text_color">#1F1F1F</color>
     <color name="nav_bar_text_color">#302E5F99</color>
     <color name="primary_color">#7868E6</color>

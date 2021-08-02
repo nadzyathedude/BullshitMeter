@@ -9,7 +9,7 @@ interface AppCoordinator {
 
     fun startSelectLanguage()
 
-    fun startCreateProfile(user : User)
+    fun startCreateProfile(user: User)
 
     fun startNameChange()
 }

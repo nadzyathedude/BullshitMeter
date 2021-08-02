@@ -1,4 +1,4 @@
-package com.ronasit.bullshitmeter.data.module
+package com.ronasit.bullshitmeter.data.api.request
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

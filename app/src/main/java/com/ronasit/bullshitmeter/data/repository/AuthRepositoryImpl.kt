@@ -2,7 +2,7 @@ package com.ronasit.bullshitmeter.data.repository
 
 import android.util.Log
 import com.ronasit.bullshitmeter.data.api.ApiInterface
-import com.ronasit.bullshitmeter.data.module.LoginRequest
+import com.ronasit.bullshitmeter.data.api.request.LoginRequest
 
 class AuthRepositoryImpl(
     private val apiInterface: ApiInterface,
