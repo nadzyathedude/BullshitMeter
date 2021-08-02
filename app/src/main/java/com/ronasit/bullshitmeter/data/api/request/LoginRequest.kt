@@ -1,4 +1,4 @@
-package com.ronasit.bullshitmeter.data.module
+package com.ronasit.bullshitmeter.data.api.request
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -6,9 +6,10 @@ import com.google.gson.annotations.SerializedName
 data class LoginRequest(
     @SerializedName("google_access_token")
     @Expose
-    var googleAccessToken : String?,
+    var googleAccessToken: String?,
 
     @SerializedName("facebook_access_token")
     @Expose
-    val facebookAccessToken: String?)
+    val facebookAccessToken: String?
+)
 

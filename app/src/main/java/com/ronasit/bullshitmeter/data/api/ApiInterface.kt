@@ -1,9 +1,9 @@
 package com.ronasit.bullshitmeter.data.api
 
-import com.ronasit.bullshitmeter.data.module.LanguagesResponse
-import com.ronasit.bullshitmeter.data.module.LoginRequest
-import com.ronasit.bullshitmeter.data.module.LoginResponse
-import com.ronasit.bullshitmeter.data.module.UpdateRequest
+import com.ronasit.bullshitmeter.data.api.request.LoginRequest
+import com.ronasit.bullshitmeter.data.api.request.UpdateRequest
+import com.ronasit.bullshitmeter.data.api.response.LanguagesResponse
+import com.ronasit.bullshitmeter.data.api.response.LoginResponse
 import com.ronasit.bullshitmeter.data.store.User
 import kotlinx.coroutines.Deferred
 import retrofit2.http.Body

@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
-import com.ronasit.bullshitmeter.data.module.LoginRequest
+import com.ronasit.bullshitmeter.data.api.request.LoginRequest
 import com.ronasit.bullshitmeter.data.repository.AuthRepository
 import com.ronasit.bullshitmeter.data.repository.UserRepository
 import com.ronasit.bullshitmeter.ui.base.BaseViewModel

@@ -5,7 +5,7 @@ import com.ronasit.bullshitmeter.navigation.AppCoordinatorImpl
 import org.koin.dsl.module
 
 val appModule = module {
-    single <AppCoordinator>{AppCoordinatorImpl()}
+    single<AppCoordinator> { AppCoordinatorImpl() }
 
 }
 

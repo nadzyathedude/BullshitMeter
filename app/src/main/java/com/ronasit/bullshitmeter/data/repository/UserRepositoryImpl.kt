@@ -7,7 +7,8 @@ import androidx.datastore.preferences.preferencesKey
 import androidx.datastore.preferences.remove
 import com.google.gson.Gson
 import com.ronasit.bullshitmeter.data.api.ApiInterface
-import com.ronasit.bullshitmeter.data.module.UpdateRequest
+import com.ronasit.bullshitmeter.data.api.request.UpdateRequest
+import com.ronasit.bullshitmeter.data.store.Languages
 import com.ronasit.bullshitmeter.data.store.User
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -21,7 +22,8 @@ class UserRepositoryImpl(
 
     private enum class Fields(name: String) {
         USER("user"),
-        TOKEN("token")
+        TOKEN("token"),
+        LANGUAGE("language")
     }
 
     private val dataStore = context.createDataStore(name = "preference_user")
@@ -56,6 +58,26 @@ class UserRepositoryImpl(
                         preferences[preferencesKey(Fields.TOKEN.name)] = it
                     } ?: run {
                         preferences.remove(preferencesKey(Fields.TOKEN.name))
+                    }
+                }
+            }
+        }
+
+    override var language: Languages?
+        get() {
+            return runBlocking {
+                dataStore.data.first()[preferencesKey<String>(Fields.LANGUAGE.name)]?.let {
+                    gson.fromJson(it, Languages::class.java)
+                } ?: run { null }
+            }
+        }
+        set(value) {
+            runBlocking {
+                dataStore.edit { preferences ->
+                    value?.let {
+                        preferences[preferencesKey(Fields.LANGUAGE.name)] = gson.toJson(it)
+                    } ?: run {
+                        preferences.remove(preferencesKey(Fields.LANGUAGE.name))
                     }
                 }
             }

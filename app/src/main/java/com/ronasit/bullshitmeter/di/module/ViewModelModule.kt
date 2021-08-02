@@ -13,5 +13,5 @@ val viewModelModule = module {
     viewModel { MainActivityViewModel() }
     viewModel { SelectLanguageViewModel() }
     viewModel { CreateProfileViewModel() }
-    viewModel {ChangeNameViewModel()}
+    viewModel { ChangeNameViewModel() }
 }

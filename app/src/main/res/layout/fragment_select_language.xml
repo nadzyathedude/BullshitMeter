@@ -38,6 +38,7 @@
         <Button
             android:id="@+id/button_continue"
             style="@style/ButtonContinueStyle"
+            android:onClick="@{() -> viewModel.onContinueClick()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
