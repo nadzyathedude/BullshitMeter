@@ -15,4 +15,7 @@
     <color name="primary_color">#7868E6</color>
     <color name="nav_bar_button_color">#230B34</color>
     <color name="via_google_text_color">#AFB1C2</color>
+    <color name="text_view_primary_inactive_color">#200E32</color>
+    <color name="edit_name_button_active_color">#7868E6</color>
+    <color name="edit_name_button_normal_color">#200E32</color>
 </resources>

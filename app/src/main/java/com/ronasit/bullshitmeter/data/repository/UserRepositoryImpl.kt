@@ -6,12 +6,18 @@ import androidx.datastore.preferences.edit
 import androidx.datastore.preferences.preferencesKey
 import androidx.datastore.preferences.remove
 import com.google.gson.Gson
+import com.ronasit.bullshitmeter.data.api.ApiInterface
+import com.ronasit.bullshitmeter.data.module.UpdateRequest
 import com.ronasit.bullshitmeter.data.store.User
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 
 
-class UserRepositoryImpl(private val context: Context, private val gson: Gson) : UserRepository {
+class UserRepositoryImpl(
+    private val context: Context,
+    private val gson: Gson,
+    private val apiInterface: ApiInterface
+) : UserRepository {
 
     private enum class Fields(name: String) {
         USER("user"),
@@ -54,4 +60,15 @@ class UserRepositoryImpl(private val context: Context, private val gson: Gson) :
                 }
             }
         }
+
+    override suspend fun updateProfile(updateRequest: UpdateRequest) {
+        val updateResponse = apiInterface.updateProfile(updateRequest)
+            .await()
+
+        with(user) {
+            this?.photoUrl = updateResponse.photoUrl
+            user = this
+        }
+    }
+
 }

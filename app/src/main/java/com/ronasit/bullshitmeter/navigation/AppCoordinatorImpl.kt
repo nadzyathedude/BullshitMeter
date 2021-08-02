@@ -13,11 +13,15 @@ class AppCoordinatorImpl : AppCoordinator {
     }
 
     override fun startSelectLanguage() {
-        nav.navigate(CreateProfileFragmentDirections.actionCreateProfileToLanguage())
+        // nav.navigate(CreateProfileFragmentDirections.actionCreateProfileToLanguage())
     }
 
-    override fun startCreateProfile(user : User) {
+    override fun startCreateProfile(user: User) {
         nav.navigate(SignInFragmentDirections.actionSigninToCreateProfile())
     }
 
+    override fun startNameChange() {
+        nav.navigate(CreateProfileFragmentDirections.actionCreateProfileToChangeName())
+    }
 }
+

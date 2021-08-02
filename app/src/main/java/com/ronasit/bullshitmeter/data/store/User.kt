@@ -12,9 +12,9 @@ data class User(
     @SerializedName("id")
     @Expose val id: Int?,
     @SerializedName("name")
-    @Expose val name: String?,
+    @Expose var name: String?,
     @SerializedName("email")
-    @Expose val email: String?,
+    @Expose var email: String?,
     @SerializedName("role_id")
-    @Expose val roleId: Int?,
+    @Expose val roleId: Int?
 ) : Parcelable
