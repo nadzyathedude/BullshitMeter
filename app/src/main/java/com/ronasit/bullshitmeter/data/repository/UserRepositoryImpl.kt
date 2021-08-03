@@ -8,6 +8,7 @@ import androidx.datastore.preferences.remove
 import com.google.gson.Gson
 import com.ronasit.bullshitmeter.data.api.ApiInterface
 import com.ronasit.bullshitmeter.data.api.request.UpdateRequest
+import com.ronasit.bullshitmeter.data.api.response.CategoriesResponse
 import com.ronasit.bullshitmeter.data.store.Languages
 import com.ronasit.bullshitmeter.data.store.User
 import kotlinx.coroutines.flow.first
@@ -91,6 +92,11 @@ class UserRepositoryImpl(
             this?.photoUrl = updateResponse.photoUrl
             user = this
         }
+    }
+
+    override suspend fun getTopics(): CategoriesResponse {
+        return apiInterface.getCategories(all = 1)
+            .await()
     }
 
 }

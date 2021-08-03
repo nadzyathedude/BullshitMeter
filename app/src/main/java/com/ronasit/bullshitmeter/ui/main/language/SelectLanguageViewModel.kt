@@ -40,6 +40,7 @@ class SelectLanguageViewModel : BaseViewModel() {
 
     fun onContinueClick() {
         userRepository.language = availableLocales.value?.get(currentSelectedLocaleIndex)?.second
+        coordinator.startTopicsChoose()
     }
 }
 

@@ -3,7 +3,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/selectLanguageFragment">
+    app:startDestination="@id/chooseTopicsFragment">
 
     <fragment
         android:id="@+id/signinFragment"
@@ -39,7 +39,17 @@
 
     <fragment
         android:id="@+id/selectLanguageFragment"
-        android:name="com.ronasit.bullshitmeter.ui.main.language.SelectLanguageFragment"></fragment>
+        android:name="com.ronasit.bullshitmeter.ui.main.language.SelectLanguageFragment">
 
+    </fragment>
+
+    <fragment
+        android:id="@+id/chooseTopicsFragment"
+        android:name="com.ronasit.bullshitmeter.ui.main.topics.ChooseTopicsFragment">
+<action
+    android:id="@+id/action_topics_to_language"
+    app:popUpTo="@id/chooseTopicsFragment"
+    app:destination="@id/selectLanguageFragment"/>
+    </fragment>
 
 </navigation>

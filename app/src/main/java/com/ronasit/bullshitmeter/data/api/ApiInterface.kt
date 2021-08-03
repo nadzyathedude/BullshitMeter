@@ -2,6 +2,7 @@ package com.ronasit.bullshitmeter.data.api
 
 import com.ronasit.bullshitmeter.data.api.request.LoginRequest
 import com.ronasit.bullshitmeter.data.api.request.UpdateRequest
+import com.ronasit.bullshitmeter.data.api.response.CategoriesResponse
 import com.ronasit.bullshitmeter.data.api.response.LanguagesResponse
 import com.ronasit.bullshitmeter.data.api.response.LoginResponse
 import com.ronasit.bullshitmeter.data.store.User
@@ -27,4 +28,8 @@ interface ApiInterface {
         @Query("all") all: Int,
     ): Deferred<LanguagesResponse>
 
+    @GET("/categories")
+    fun getCategories(
+        @Query("all") all : Int
+    ): Deferred<CategoriesResponse>
 }

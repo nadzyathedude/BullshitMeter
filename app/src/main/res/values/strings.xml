@@ -9,5 +9,6 @@
     <string name="select_language">Select language</string>
     <string name="continue_button">Continue</string>
     <string name="via_google">via google</string>
-
+    <string name="onboarding">Onboarding</string>
+    <string name="choose_topics">Choose interesting topics\non which you want to see news</string>
 </resources>

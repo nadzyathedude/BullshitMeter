@@ -12,4 +12,6 @@ interface AppCoordinator {
     fun startCreateProfile(user: User)
 
     fun startNameChange()
+
+    fun startTopicsChoose()
 }

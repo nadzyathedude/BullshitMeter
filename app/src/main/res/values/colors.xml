@@ -18,4 +18,5 @@
     <color name="text_view_primary_inactive_color">#200E32</color>
     <color name="edit_name_button_active_color">#7868E6</color>
     <color name="edit_name_button_normal_color">#200E32</color>
+    <color name="topics_button_unchosen">#66666666</color>
 </resources>
