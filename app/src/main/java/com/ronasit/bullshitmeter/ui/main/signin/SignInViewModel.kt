@@ -10,6 +10,7 @@ import com.ronasit.bullshitmeter.data.repository.AuthRepository
 import com.ronasit.bullshitmeter.data.repository.UserRepository
 import com.ronasit.bullshitmeter.ui.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.koin.core.component.inject
 
@@ -34,7 +35,10 @@ class SignInViewModel : BaseViewModel() {
                             null
                         )
                     )
-                ) userRepository.user?.let { coordinator.startCreateProfile(it) }
+                ) userRepository.user?.let {
+                   GlobalScope.launch(Dispatchers.Main) {
+                       coordinator.startCreateProfile(it) }
+                   }
             }
         } catch (e: Exception) {
             exceptionMessage.postValue("Sign in with google failed")

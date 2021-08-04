@@ -16,7 +16,8 @@ class ChooseTopicsViewModel : BaseViewModel() {
     fun getTopicsFromServer(){
         try{
             viewModelScope.launch(Dispatchers.IO){
-                val topicsList = userRepository.getTopics().data.map { it.toString() }.toTypedArray()
+                val topicsList = userRepository.getTopics().data.map { it.name.toString() }.toTypedArray()
+                //val topicsList = userRepository.getTopics().data.map { it.toString() }.toTypedArray()
             availableTopics.postValue(topicsList)
             }
         }
@@ -27,6 +28,6 @@ class ChooseTopicsViewModel : BaseViewModel() {
     }
 
     fun onBoardingClick(){
-        coordinator.startSelectLanguage()
+
     }
 }

@@ -6,6 +6,7 @@ import com.ronasit.bullshitmeter.data.api.request.UpdateRequest
 import com.ronasit.bullshitmeter.data.repository.UserRepository
 import com.ronasit.bullshitmeter.ui.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.koin.core.component.inject
 
@@ -29,6 +30,8 @@ class ChangeNameViewModel : BaseViewModel() {
                     email.value
                 )
                 userRepository.updateProfile(request)
+                GlobalScope.launch(Dispatchers.Main) {coordinator.startSelectLanguage()  }
+
             }
             true
         } catch (e: Exception) {

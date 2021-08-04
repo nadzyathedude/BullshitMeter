@@ -16,13 +16,12 @@ class ChooseTopicsFragment : BaseFragment<FragmentChooseTopicsBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
-
-        viewModel.availableTopics.observe(viewLifecycleOwner, {
-            it.forEach {
+        val chipGroup = binding.chipGroup
+        viewModel.availableTopics.observe(viewLifecycleOwner, { topics ->
+            topics.forEach {
                 val chip = Chip(requireContext())
                 chip.text = it
-
-                binding.chipGroup.addView(chip)
+                chipGroup.addView(chip)
             }
         })
         viewModel.getTopicsFromServer()
