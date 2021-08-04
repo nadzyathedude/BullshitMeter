@@ -15,7 +15,7 @@ import java.util.*
 class SelectLanguageViewModel : BaseViewModel() {
 
     val availableLocales = MutableLiveData<List<Pair<String, Languages>>>()
-    var currentSelectedLocaleIndex = -1
+    var currentSelectedLocaleIndex = 0
     private val languagesRepository by inject<LanguagesRepository>()
     private val userRepository by inject<UserRepository>()
 

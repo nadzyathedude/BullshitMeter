@@ -21,6 +21,7 @@ class ChooseTopicsFragment : BaseFragment<FragmentChooseTopicsBinding>() {
             topics.forEach {
                 val chip = Chip(requireContext())
                 chip.text = it
+                chip.setTextColor(resources.getColor(R.color.white, context?.theme))
                 chipGroup.addView(chip)
             }
         })
