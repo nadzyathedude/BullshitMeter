@@ -19,8 +19,8 @@ class ChooseTopicsFragment : BaseFragment<FragmentChooseTopicsBinding>() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         chipGroup = binding.chipGroup
-        viewModel.availableTopics.observe(viewLifecycleOwner, {
-            it.forEach {
+        viewModel.availableTopics.observe(viewLifecycleOwner, { topics ->
+            topics.forEach {
                 val chip = Chip(requireContext())
                 chip.text = it
                 chipGroup.addView(chip)
