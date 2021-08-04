@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.ronasit.bullshitmeter.BuildConfig
 import com.ronasit.bullshitmeter.data.api.ApiInterface
-import com.ronasit.bullshitmeter.data.repository.UserRepository
+import com.ronasit.bullshitmeter.data.store.Preferences
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,10 +19,10 @@ val networkModule = module {
     single<Gson> { GsonBuilder().excludeFieldsWithoutExposeAnnotation().create() }
 
     single<ApiInterface> {
-        val userRepository: UserRepository = get()
+        val preferences: Preferences = get()
 
         val headerInterceptor = Interceptor { chain ->
-            val request = userRepository.token?.let { token ->
+            val request = preferences.token?.let { token ->
                 chain.request()
                     .newBuilder()
                     .addHeader("Authorization", "Bearer $token")
