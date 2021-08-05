@@ -12,18 +12,15 @@ import kotlinx.coroutines.launch
 import org.koin.core.component.inject
 
 class ChooseTopicsViewModel : BaseViewModel() {
-    val availableTopics = MutableLiveData<Array<String>>()
-    val topicsId = MutableLiveData<Array<Int?>>()
+    val availableTopics = MutableLiveData<Array<Categories>>()
     private val userRepository by inject<UserRepository>()
     fun getTopicsFromServer() {
         try {
             viewModelScope.launch(Dispatchers.IO) {
                 val topicsList =
-                    userRepository.getTopics().data.map { it.name.toString() }.toTypedArray()
-                val ids = userRepository.getTopics().data.map { it.id?.toInt() }.toTypedArray()
-                availableTopics.postValue(topicsList)
-                topicsId.postValue(ids)
-            }
+                    userRepository.getTopics().data.toTypedArray()
+                    availableTopics.postValue(topicsList)
+                }
         } catch (e: Exception) {
             exceptionMessage.postValue("Failed getting categories")
         }
