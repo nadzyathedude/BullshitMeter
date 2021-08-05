@@ -11,4 +11,9 @@
     <string name="via_google">via google</string>
     <string name="onboarding">Onboarding</string>
     <string name="choose_topics">Choose interesting topics\non which you want to see news</string>
+
+    <string name="fragment_title_select_language">Select language</string>
+    <string name="fragment_title_create_profile">Creating profile</string>
+    <string name="fragment_title_name_change">Name change</string>
+    <string name="fragment_title_preferred_topics">Preferred topics</string>
 </resources>

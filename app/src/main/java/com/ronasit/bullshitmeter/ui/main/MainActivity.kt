@@ -31,16 +31,27 @@ class MainActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
+
         coordinator.startWithNavController(navigationController)
 
-        val appBarConfiguration = AppBarConfiguration(navigationController.graph)
-        AppBarConfiguration.Builder(R.layout.fragment_sign_in).build()
+        setSupportActionBar(binding.toolbar)
 
-        NavigationUI.setupWithNavController(
-            binding.toolbar,
-            navigationController,
-            appBarConfiguration
-        )
+        binding.toolbar.setNavigationOnClickListener {
+            navigationController.navigateUp()
+        }
+
+        navigationController.addOnDestinationChangedListener { _, destination, _ ->
+            binding.toolbar.title = destination.label
+
+            when (destination.id) {
+                R.id.signinFragment -> {
+                    supportActionBar?.hide()
+                }
+                else -> {
+                    supportActionBar?.show()
+                }
+            }
+        }
     }
 }
 

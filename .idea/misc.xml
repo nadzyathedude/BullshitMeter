@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/button_back_nav_bar.xml" value="0.2109375" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16995947315096252" />
         <entry key="app/src/main/res/layout/chip_cloud_topic.xml" value="0.19479166666666667" />
         <entry key="app/src/main/res/layout/fragment_create_profile.xml" value="0.11413043478260869" />
         <entry key="app/src/main/res/layout/fragment_select_language.xml" value="0.125" />
