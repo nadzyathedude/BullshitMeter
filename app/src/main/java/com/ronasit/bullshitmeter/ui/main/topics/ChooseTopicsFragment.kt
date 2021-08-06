@@ -24,6 +24,7 @@ class ChooseTopicsFragment : BaseFragment<FragmentChooseTopicsBinding>() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         viewModel.availableTopics.observe(viewLifecycleOwner, { topics ->
+            binding.progressBar.visibility = View.INVISIBLE
             topics.forEach { topics ->
                 val chip = Chip(requireContext())
                 chip.text = topics.name

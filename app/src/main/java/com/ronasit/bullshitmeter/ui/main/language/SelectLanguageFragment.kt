@@ -16,9 +16,10 @@ class SelectLanguageFragment : BaseFragment<FragmentSelectLanguageBinding>() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
         binding.buttonContinue.isEnabled = false
-
         viewModel.availableLocales.observe(viewLifecycleOwner, { data ->
             with(binding) {
+                pickerLanguage.visibility = View.VISIBLE
+                binding.progressBar.visibility = View.INVISIBLE
                 pickerLanguage.minValue = 0
                 pickerLanguage.maxValue = data.size - 1
                 pickerLanguage.displayedValues = data.map { it.first }.toTypedArray()

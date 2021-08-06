@@ -42,6 +42,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <ProgressBar
+                    app:layout_constraintTop_toBottomOf="@id/text_view_choose_topics"
+                    app:layout_constraintStart_toStartOf="@id/text_view_choose_topics"
+                    app:layout_constraintEnd_toEndOf="@id/text_view_choose_topics"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/progressBar"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center" />
+
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/chipGroup"
                     android:layout_width="match_parent"
