@@ -14,7 +14,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ChooseTopicsFragment : BaseFragment<FragmentChooseTopicsBinding>() {
     override val layoutId = R.layout.fragment_choose_topics
     override val viewModel: ChooseTopicsViewModel by viewModel()
-    val colors = listOf(R.color.topics_color_blue, R.color.topics_color_red,  R.color.topics_color_green,R.color.topics_color_orange, R.color.topics_color_yellow)
+    val colors = listOf(R.color.topics_color_blue,
+        R.color.topics_color_red,
+        R.color.topics_color_green,
+        R.color.topics_color_orange,
+        R.color.topics_color_yellow)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

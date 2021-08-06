@@ -19,12 +19,11 @@ class ChooseTopicsViewModel : BaseViewModel() {
             viewModelScope.launch(Dispatchers.IO) {
                 val topicsList =
                     userRepository.getTopics().data.toTypedArray()
-                    availableTopics.postValue(topicsList)
-                }
+                availableTopics.postValue(topicsList)
+            }
         } catch (e: Exception) {
             exceptionMessage.postValue("Failed getting categories")
         }
-
     }
 
     fun onBoardingClick() {

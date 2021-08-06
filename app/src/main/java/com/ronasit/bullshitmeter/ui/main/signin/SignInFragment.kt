@@ -34,7 +34,6 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>() {
                 val completedTask = GoogleSignIn.getSignedInAccountFromIntent(result.data)
                 viewModel.handleSignInResult(completedTask)
             }
-
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -46,11 +45,9 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>() {
             .requestEmail()
             .build()
         mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
-
         binding.viewModel = viewModel
-
         viewModel.onGoogleSignInClick.observe(viewLifecycleOwner, {
-            startForResult.launch(mGoogleSignInClient.signInIntent)
+        startForResult.launch(mGoogleSignInClient.signInIntent)
         })
     }
 }
