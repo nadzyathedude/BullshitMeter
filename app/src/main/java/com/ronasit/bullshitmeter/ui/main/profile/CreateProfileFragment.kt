@@ -43,7 +43,6 @@ class CreateProfileFragment : BaseFragment<FragmentCreateProfileBinding>() {
                             .with(this)
                             .load(fileUri)
                             .circleCrop()
-                            .placeholder(R.drawable.profile_pic)
                             .into(binding.imageViewProfile)
                     }
                 }
@@ -61,7 +60,6 @@ class CreateProfileFragment : BaseFragment<FragmentCreateProfileBinding>() {
                 .with(this)
                 .load(photoUrl)
                 .circleCrop()
-                .placeholder(R.drawable.profile_pic)
                 .into(binding.imageViewProfile)
         }
 

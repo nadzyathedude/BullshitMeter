@@ -22,7 +22,15 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>() {
     override val layoutId = R.layout.fragment_sign_in
     override val viewModel: SignInViewModel by viewModel()
     lateinit var startForResult: ActivityResultLauncher<Intent>
-    lateinit var mGoogleSignInClient: GoogleSignInClient
+
+    private val mGoogleSignInClient: GoogleSignInClient by lazy {
+        GoogleSignIn.getClient(
+            requireContext(), GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(BuildConfig.DEFAULT_WEB_CLIENT_ID)
+                .requestEmail()
+                .build()
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,12 +48,6 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(BuildConfig.DEFAULT_WEB_CLIENT_ID)
-            .requestEmail()
-            .build()
-        mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
 
         binding.viewModel = viewModel
 

@@ -7,6 +7,7 @@ import com.ronasit.bullshitmeter.data.repository.UserRepository
 import com.ronasit.bullshitmeter.data.store.Languages
 import com.ronasit.bullshitmeter.ui.base.BaseViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.koin.core.component.inject
 import java.util.*
@@ -14,7 +15,7 @@ import java.util.*
 class SelectLanguageViewModel : BaseViewModel() {
 
     val availableLocales = MutableLiveData<List<Pair<String, Languages>>>()
-    var currentSelectedLocaleIndex = -1
+    var currentSelectedLocaleIndex = 0
     private val languagesRepository by inject<LanguagesRepository>()
     private val userRepository by inject<UserRepository>()
 
@@ -40,6 +41,7 @@ class SelectLanguageViewModel : BaseViewModel() {
 
     fun onContinueClick() {
         userRepository.language = availableLocales.value?.get(currentSelectedLocaleIndex)?.second
+        GlobalScope.launch(Dispatchers.Main) { coordinator.startTopicsChoose() }
     }
 }
 
